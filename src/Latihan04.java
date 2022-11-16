@@ -1,45 +1,39 @@
-import java.util.Scanner;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 public class Latihan04 {
 
 	public static void main(String[] args) {
-		Scanner Input= new Scanner(System.in);
-		LocalDateTime date = LocalDateTime.now();
-		DateTimeFormatter dateF = DateTimeFormatter.ofPattern("dd MM yyyy (HH:mm)");
-		String time = date.format(dateF);
-		
-		double hargaroti = 6300;
-		int jmlh ;
-		double total;
-		double diskon;
-		double subtotal;
+		JOptionPane jop = new JOptionPane();
 	
+		int i,max_num=0,min_num=0;
+		
+		String arr_count=jop.showInputDialog(null,"Masukkan jumlah array:");
+			int count = Integer.parseInt(arr_count);
+			int []nilai = new int[count];
 	
+		String output = "";
+		for (i = 0; i<count ; i++) {
+			nilai[i]=Integer.parseInt(JOptionPane.showInputDialog(null,"Masukkan angka:"));
+			output +="x ["+i+"]="+arr_count+"\n";
 		
-		System.out.println("====================================");
-		System.out.println("	TOKO SERBAGUNA IBIK");
-		System.out.println("====================================");
-		
-	
-		System.out.println("Masukkan jumlah produk yang dibeli :");
-		jmlh = Input.nextInt();
-		total =  jmlh * hargaroti;
-	
-		System.out.println(time);
-		System.out.println("ITEM\t\t\tQTY \t\tHARGA  \t\tTotal");
-		System.out.println("=====================================================================");
-		System.out.println ("ROTI Enak \t\t" + jmlh + "\t\t Rp." + hargaroti + "\tRp." + total);
-		
-		
-		
-		diskon = 0.1 * total;
-		System.out.println("diskon 10%");
-		subtotal = total - diskon;
-		System.out.println("SubTotal :Rp. " + subtotal);
-		
-		
+		}
+			max_num =nilai[0];
+			for ( i=0 ; i<count ; i++) {
+			if(nilai[i]>max_num) {
+				max_num = nilai[i];
+		}
+				
 	}
-
+			min_num =nilai[0];
+			for ( i=0 ; i<count ; i++) {
+			if(nilai[i]<min_num) {
+				min_num = nilai[i];
+		}
+				
+	}
+		JOptionPane.showMessageDialog(null,output+"Angka terbesar adalah "+max_num+"\nAngka terkecil adalah "+min_num);
+		
+				
+	}
 }
+
 
